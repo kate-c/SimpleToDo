@@ -25,7 +25,7 @@ class TDDataModel: NSObject {
     }
     
     private func setupLocalStorage() {
-        MagicalRecord.setupCoreDataStackWithStoreNamed("Notes")
+        MagicalRecord.setupCoreDataStackWithStoreNamed("TDNotesModel")
         context = NSManagedObjectContext.MR_defaultContext()
     }
     
@@ -38,8 +38,8 @@ class TDDataModel: NSObject {
         var maxId: Int = 0
         
         for note in notes {
-            if note.id.integerValue > maxId {
-                maxId = note.id.integerValue
+            if note.noteId.integerValue > maxId {
+                maxId = note.noteId.integerValue
             }
         }
         
@@ -50,7 +50,7 @@ class TDDataModel: NSObject {
         let note = TDNoteEntity.MR_createEntity() as TDNoteEntity
         note.content = content
         note.creationDate = NSDate()
-        note.id = maxNoteId + 1
+        note.noteId = maxNoteId + 1
         
         context.MR_saveToPersistentStoreAndWait()
     }
