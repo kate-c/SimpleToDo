@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1028BC6B8F6BA8A8AF05D78A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F533EBC6883C9A14394A515 /* libPods.a */; };
+		A66AE0D41A056FB9000C529E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0D31A056FB9000C529E /* AppDelegate.swift */; };
+		A66AE0DB1A056FB9000C529E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0DA1A056FB9000C529E /* Images.xcassets */; };
+		A66AE0DE1A056FB9000C529E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0DC1A056FB9000C529E /* LaunchScreen.xib */; };
+		A66AE0EA1A056FB9000C529E /* SimpleToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0E91A056FB9000C529E /* SimpleToDoTests.swift */; };
+		A66AE0F81A05704A000C529E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0F61A05704A000C529E /* StartViewController.swift */; };
+		A66AE0F91A05704A000C529E /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0F71A05704A000C529E /* StartViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A66AE0E41A056FB9000C529E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A66AE0C61A056FB9000C529E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A66AE0CD1A056FB9000C529E;
+			remoteInfo = SimpleToDo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		77257D7E41B23ADFBC5A1330 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7F533EBC6883C9A14394A515 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		88C22DD15651BDF55F87F3D5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A66AE0CE1A056FB9000C529E /* SimpleToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A66AE0D21A056FB9000C529E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A66AE0D31A056FB9000C529E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A66AE0DA1A056FB9000C529E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A66AE0DD1A056FB9000C529E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A66AE0E31A056FB9000C529E /* SimpleToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A66AE0E81A056FB9000C529E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A66AE0E91A056FB9000C529E /* SimpleToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToDoTests.swift; sourceTree = "<group>"; };
+		A66AE0F61A05704A000C529E /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = ViewControllers/StartViewController/StartViewController.swift; sourceTree = "<group>"; };
+		A66AE0F71A05704A000C529E /* StartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StartViewController.xib; path = ViewControllers/StartViewController/StartViewController.xib; sourceTree = "<group>"; };
+		A6A4C5C61A05775500A73089 /* SimpleToDo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleToDo-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A66AE0CB1A056FB9000C529E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1028BC6B8F6BA8A8AF05D78A /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A66AE0E01A056FB9000C529E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		234AF647BE73ED686B0DB14F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F533EBC6883C9A14394A515 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A66AE0C51A056FB9000C529E = {
+			isa = PBXGroup;
+			children = (
+				A66AE0D01A056FB9000C529E /* SimpleToDo */,
+				A66AE0E61A056FB9000C529E /* SimpleToDoTests */,
+				A66AE0CF1A056FB9000C529E /* Products */,
+				F859D63A05690BB257CDFF7B /* Pods */,
+				234AF647BE73ED686B0DB14F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A66AE0CF1A056FB9000C529E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A66AE0CE1A056FB9000C529E /* SimpleToDo.app */,
+				A66AE0E31A056FB9000C529E /* SimpleToDoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A66AE0D01A056FB9000C529E /* SimpleToDo */ = {
+			isa = PBXGroup;
+			children = (
+				A66AE0D31A056FB9000C529E /* AppDelegate.swift */,
+				A66AE0F51A056FFD000C529E /* Core */,
+				A66AE0F41A056FEE000C529E /* ViewControllers */,
+				A66AE0F31A056FD0000C529E /* Resourses */,
+				A66AE0D11A056FB9000C529E /* Supporting Files */,
+				A6A4C5C61A05775500A73089 /* SimpleToDo-Bridging-Header.h */,
+			);
+			path = SimpleToDo;
+			sourceTree = "<group>";
+		};
+		A66AE0D11A056FB9000C529E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A66AE0D21A056FB9000C529E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A66AE0E61A056FB9000C529E /* SimpleToDoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A66AE0E91A056FB9000C529E /* SimpleToDoTests.swift */,
+				A66AE0E71A056FB9000C529E /* Supporting Files */,
+			);
+			path = SimpleToDoTests;
+			sourceTree = "<group>";
+		};
+		A66AE0E71A056FB9000C529E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A66AE0E81A056FB9000C529E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A66AE0F31A056FD0000C529E /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				A66AE0DA1A056FB9000C529E /* Images.xcassets */,
+				A66AE0DC1A056FB9000C529E /* LaunchScreen.xib */,
+			);
+			name = Resourses;
+			sourceTree = "<group>";
+		};
+		A66AE0F41A056FEE000C529E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A66AE0FA1A05706F000C529E /* StartViewController */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A66AE0F51A056FFD000C529E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		A66AE0FA1A05706F000C529E /* StartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A66AE0F61A05704A000C529E /* StartViewController.swift */,
+				A66AE0F71A05704A000C529E /* StartViewController.xib */,
+			);
+			name = StartViewController;
+			sourceTree = "<group>";
+		};
+		F859D63A05690BB257CDFF7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77257D7E41B23ADFBC5A1330 /* Pods.debug.xcconfig */,
+				88C22DD15651BDF55F87F3D5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A66AE0CD1A056FB9000C529E /* SimpleToDo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A66AE0ED1A056FB9000C529E /* Build configuration list for PBXNativeTarget "SimpleToDo" */;
+			buildPhases = (
+				8CE74417AA6072AF38F8BB33 /* Check Pods Manifest.lock */,
+				A66AE0CA1A056FB9000C529E /* Sources */,
+				A66AE0CB1A056FB9000C529E /* Frameworks */,
+				A66AE0CC1A056FB9000C529E /* Resources */,
+				4458559081AFBAD6119561DD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleToDo;
+			productName = SimpleToDo;
+			productReference = A66AE0CE1A056FB9000C529E /* SimpleToDo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A66AE0E21A056FB9000C529E /* SimpleToDoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A66AE0F01A056FB9000C529E /* Build configuration list for PBXNativeTarget "SimpleToDoTests" */;
+			buildPhases = (
+				A66AE0DF1A056FB9000C529E /* Sources */,
+				A66AE0E01A056FB9000C529E /* Frameworks */,
+				A66AE0E11A056FB9000C529E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A66AE0E51A056FB9000C529E /* PBXTargetDependency */,
+			);
+			name = SimpleToDoTests;
+			productName = SimpleToDoTests;
+			productReference = A66AE0E31A056FB9000C529E /* SimpleToDoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A66AE0C61A056FB9000C529E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Katrin Chirkova";
+				TargetAttributes = {
+					A66AE0CD1A056FB9000C529E = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					A66AE0E21A056FB9000C529E = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = A66AE0CD1A056FB9000C529E;
+					};
+				};
+			};
+			buildConfigurationList = A66AE0C91A056FB9000C529E /* Build configuration list for PBXProject "SimpleToDo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A66AE0C51A056FB9000C529E;
+			productRefGroup = A66AE0CF1A056FB9000C529E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A66AE0CD1A056FB9000C529E /* SimpleToDo */,
+				A66AE0E21A056FB9000C529E /* SimpleToDoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A66AE0CC1A056FB9000C529E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A66AE0DE1A056FB9000C529E /* LaunchScreen.xib in Resources */,
+				A66AE0DB1A056FB9000C529E /* Images.xcassets in Resources */,
+				A66AE0F91A05704A000C529E /* StartViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A66AE0E11A056FB9000C529E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4458559081AFBAD6119561DD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CE74417AA6072AF38F8BB33 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A66AE0CA1A056FB9000C529E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A66AE0D41A056FB9000C529E /* AppDelegate.swift in Sources */,
+				A66AE0F81A05704A000C529E /* StartViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A66AE0DF1A056FB9000C529E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A66AE0EA1A056FB9000C529E /* SimpleToDoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A66AE0E51A056FB9000C529E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A66AE0CD1A056FB9000C529E /* SimpleToDo */;
+			targetProxy = A66AE0E41A056FB9000C529E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A66AE0DC1A056FB9000C529E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A66AE0DD1A056FB9000C529E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A66AE0EB1A056FB9000C529E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A66AE0EC1A056FB9000C529E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A66AE0EE1A056FB9000C529E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77257D7E41B23ADFBC5A1330 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = SimpleToDo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleToDo/SimpleToDo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A66AE0EF1A056FB9000C529E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88C22DD15651BDF55F87F3D5 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = SimpleToDo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleToDo/SimpleToDo-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		A66AE0F11A056FB9000C529E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleToDoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleToDo.app/SimpleToDo";
+			};
+			name = Debug;
+		};
+		A66AE0F21A056FB9000C529E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleToDoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleToDo.app/SimpleToDo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A66AE0C91A056FB9000C529E /* Build configuration list for PBXProject "SimpleToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A66AE0EB1A056FB9000C529E /* Debug */,
+				A66AE0EC1A056FB9000C529E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A66AE0ED1A056FB9000C529E /* Build configuration list for PBXNativeTarget "SimpleToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A66AE0EE1A056FB9000C529E /* Debug */,
+				A66AE0EF1A056FB9000C529E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A66AE0F01A056FB9000C529E /* Build configuration list for PBXNativeTarget "SimpleToDoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A66AE0F11A056FB9000C529E /* Debug */,
+				A66AE0F21A056FB9000C529E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A66AE0C61A056FB9000C529E /* Project object */;
+}
