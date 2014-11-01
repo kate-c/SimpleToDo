@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class TDAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
         
-        let startViewController = StartViewController(nibName: "StartViewController", bundle: nil)
+        let startViewController = TDStartViewController(nibName: "TDStartViewController", bundle: nil)
         let navigationVC = UINavigationController(rootViewController: startViewController)
         window?.rootViewController = navigationVC
 

@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		1028BC6B8F6BA8A8AF05D78A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F533EBC6883C9A14394A515 /* libPods.a */; };
-		A66AE0D41A056FB9000C529E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0D31A056FB9000C529E /* AppDelegate.swift */; };
+		A66AE0D41A056FB9000C529E /* TDAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0D31A056FB9000C529E /* TDAppDelegate.swift */; };
 		A66AE0DB1A056FB9000C529E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0DA1A056FB9000C529E /* Images.xcassets */; };
 		A66AE0DE1A056FB9000C529E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0DC1A056FB9000C529E /* LaunchScreen.xib */; };
 		A66AE0EA1A056FB9000C529E /* SimpleToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0E91A056FB9000C529E /* SimpleToDoTests.swift */; };
-		A66AE0F81A05704A000C529E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0F61A05704A000C529E /* StartViewController.swift */; };
-		A66AE0F91A05704A000C529E /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0F71A05704A000C529E /* StartViewController.xib */; };
+		A66AE0F81A05704A000C529E /* TDStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0F61A05704A000C529E /* TDStartViewController.swift */; };
+		A66AE0F91A05704A000C529E /* TDStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0F71A05704A000C529E /* TDStartViewController.xib */; };
+		A6A4C5D21A057E4800A73089 /* TDNotesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6A4C5D01A057E4800A73089 /* TDNotesModel.xcdatamodeld */; };
+		A6A4C5D41A05815E00A73089 /* TDNoteGroupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A4C5D31A05815E00A73089 /* TDNoteGroupEntity.swift */; };
+		A6A4C5D61A05815F00A73089 /* TDNoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A4C5D51A05815F00A73089 /* TDNoteEntity.swift */; };
+		A6A4C5D81A0581E700A73089 /* TDDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A4C5D71A0581E700A73089 /* TDDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,15 +36,19 @@
 		88C22DD15651BDF55F87F3D5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A66AE0CE1A056FB9000C529E /* SimpleToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66AE0D21A056FB9000C529E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A66AE0D31A056FB9000C529E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A66AE0D31A056FB9000C529E /* TDAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDAppDelegate.swift; sourceTree = "<group>"; };
 		A66AE0DA1A056FB9000C529E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A66AE0DD1A056FB9000C529E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A66AE0E31A056FB9000C529E /* SimpleToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66AE0E81A056FB9000C529E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A66AE0E91A056FB9000C529E /* SimpleToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToDoTests.swift; sourceTree = "<group>"; };
-		A66AE0F61A05704A000C529E /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = ViewControllers/StartViewController/StartViewController.swift; sourceTree = "<group>"; };
-		A66AE0F71A05704A000C529E /* StartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StartViewController.xib; path = ViewControllers/StartViewController/StartViewController.xib; sourceTree = "<group>"; };
+		A66AE0F61A05704A000C529E /* TDStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDStartViewController.swift; path = ViewControllers/StartViewController/TDStartViewController.swift; sourceTree = "<group>"; };
+		A66AE0F71A05704A000C529E /* TDStartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDStartViewController.xib; path = ViewControllers/StartViewController/TDStartViewController.xib; sourceTree = "<group>"; };
 		A6A4C5C61A05775500A73089 /* SimpleToDo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleToDo-Bridging-Header.h"; sourceTree = "<group>"; };
+		A6A4C5D11A057E4800A73089 /* TDNotesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TDNotesModel.xcdatamodel; sourceTree = "<group>"; };
+		A6A4C5D31A05815E00A73089 /* TDNoteGroupEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDNoteGroupEntity.swift; path = "Core /DataBase/Entities/TDNoteGroupEntity.swift"; sourceTree = "<group>"; };
+		A6A4C5D51A05815F00A73089 /* TDNoteEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDNoteEntity.swift; path = "Core /DataBase/Entities/TDNoteEntity.swift"; sourceTree = "<group>"; };
+		A6A4C5D71A0581E700A73089 /* TDDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDDataModel.swift; path = "Core /DataBase/DataModel/TDDataModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +101,7 @@
 		A66AE0D01A056FB9000C529E /* SimpleToDo */ = {
 			isa = PBXGroup;
 			children = (
-				A66AE0D31A056FB9000C529E /* AppDelegate.swift */,
+				A66AE0D31A056FB9000C529E /* TDAppDelegate.swift */,
 				A66AE0F51A056FFD000C529E /* Core */,
 				A66AE0F41A056FEE000C529E /* ViewControllers */,
 				A66AE0F31A056FD0000C529E /* Resourses */,
@@ -148,6 +156,7 @@
 		A66AE0F51A056FFD000C529E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A6A4C5CA1A057C6F00A73089 /* DataBase */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -155,10 +164,37 @@
 		A66AE0FA1A05706F000C529E /* StartViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A66AE0F61A05704A000C529E /* StartViewController.swift */,
-				A66AE0F71A05704A000C529E /* StartViewController.xib */,
+				A66AE0F61A05704A000C529E /* TDStartViewController.swift */,
+				A66AE0F71A05704A000C529E /* TDStartViewController.xib */,
 			);
 			name = StartViewController;
+			sourceTree = "<group>";
+		};
+		A6A4C5CA1A057C6F00A73089 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				A6A4C5D01A057E4800A73089 /* TDNotesModel.xcdatamodeld */,
+				A6A4C5CB1A057C8300A73089 /* Entities */,
+				A6A4C5CC1A057C9100A73089 /* DataModel */,
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
+		A6A4C5CB1A057C8300A73089 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A6A4C5D51A05815F00A73089 /* TDNoteEntity.swift */,
+				A6A4C5D31A05815E00A73089 /* TDNoteGroupEntity.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		A6A4C5CC1A057C9100A73089 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				A6A4C5D71A0581E700A73089 /* TDDataModel.swift */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 		F859D63A05690BB257CDFF7B /* Pods */ = {
@@ -216,6 +252,7 @@
 		A66AE0C61A056FB9000C529E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TD;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Katrin Chirkova";
 				TargetAttributes = {
@@ -254,7 +291,7 @@
 			files = (
 				A66AE0DE1A056FB9000C529E /* LaunchScreen.xib in Resources */,
 				A66AE0DB1A056FB9000C529E /* Images.xcassets in Resources */,
-				A66AE0F91A05704A000C529E /* StartViewController.xib in Resources */,
+				A66AE0F91A05704A000C529E /* TDStartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,8 +342,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A66AE0D41A056FB9000C529E /* AppDelegate.swift in Sources */,
-				A66AE0F81A05704A000C529E /* StartViewController.swift in Sources */,
+				A6A4C5D21A057E4800A73089 /* TDNotesModel.xcdatamodeld in Sources */,
+				A6A4C5D81A0581E700A73089 /* TDDataModel.swift in Sources */,
+				A66AE0D41A056FB9000C529E /* TDAppDelegate.swift in Sources */,
+				A6A4C5D61A05815F00A73089 /* TDNoteEntity.swift in Sources */,
+				A6A4C5D41A05815E00A73089 /* TDNoteGroupEntity.swift in Sources */,
+				A66AE0F81A05704A000C529E /* TDStartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +550,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A6A4C5D01A057E4800A73089 /* TDNotesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A6A4C5D11A057E4800A73089 /* TDNotesModel.xcdatamodel */,
+			);
+			currentVersion = A6A4C5D11A057E4800A73089 /* TDNotesModel.xcdatamodel */;
+			name = TDNotesModel.xcdatamodeld;
+			path = "Core /DataBase/TDNotesModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A66AE0C61A056FB9000C529E /* Project object */;
 }
