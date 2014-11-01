@@ -23,11 +23,15 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UIAlertVie
 
     // MARK: - table view data sourse
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return notes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        
+        cell.textLabel.text = notes[indexPath.row].content
+        
+        return cell
     }
 
     // MARK: - button action
@@ -43,8 +47,7 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UIAlertVie
         if buttonIndex != 0 {
             TDDataModel.sharedInstance.addNote(textField?.text ?? "")
             updateData()
-        }
-        
+        }        
     }
     
     func updateData() {
