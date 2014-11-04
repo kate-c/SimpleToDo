@@ -83,18 +83,18 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: - filter options
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredNotes = notes.filter({( note: TDNoteEntity) -> Bool in
-            var stringMatch = note.content.rangeOfString(searchText)
-            return stringMatch != nil
-        })
-    }
-    
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
         let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as [String]
         let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
         self.filterContentForSearchText(searchString, scope: selectedScope)
         return true
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredNotes = notes.filter({( note: TDNoteEntity) -> Bool in
+            var stringMatch = note.content.rangeOfString(searchText)
+            return stringMatch != nil
+        })
     }
     
     func searchDisplayController(controller: UISearchDisplayController!,
@@ -105,22 +105,33 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("Detail", sender: tableView)
+        //self.performSegueWithIdentifier("Detail", sender: tableView)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "Detail" {
-            let noteDetailViewController = segue.destinationViewController as UIViewController
-            if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
-                let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                let destinationTitle = filteredNotes[indexPath.row].content
-                noteDetailViewController.title = destinationTitle
-            } else {
-                let indexPath = self.tableView.indexPathForSelectedRow()!
-                let destinationTitle = notes[indexPath.row].content
-                noteDetailViewController.title = destinationTitle
-            }
+    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            TDDataModel.sharedInstance.deleteNoteById(Int(notes[indexPath.row].noteId))
+            updateData()           
         }
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//        if segue.identifier == "Detail" {
+//            let noteDetailViewController = segue.destinationViewController as UIViewController
+//            if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
+//                let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
+//                let destinationTitle = filteredNotes[indexPath.row].content
+//                noteDetailViewController.title = destinationTitle
+//            } else {
+//                let indexPath = self.tableView.indexPathForSelectedRow()!
+//                let destinationTitle = notes[indexPath.row].content
+//                noteDetailViewController.title = destinationTitle
+//            }
+//        }
+//    }
 
 }

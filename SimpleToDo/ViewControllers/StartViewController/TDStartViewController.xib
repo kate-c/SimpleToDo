@@ -17,15 +17,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oiA-Cd-pX4">
-                    <rect key="frame" x="0.0" y="109" width="320" height="459"/>
+                    <rect key="frame" x="0.0" y="78" width="320" height="490"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="VHv-NM-SQy"/>
                     </connections>
                 </tableView>
-                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-SW-rjr">
-                    <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-SW-rjr">
+                    <rect key="frame" x="0.0" y="34" width="320" height="44"/>
                     <textInputTraits key="textInputTraits"/>
+                    <scopeButtonTitles>
+                        <string>All</string>
+                        <string>Today</string>
+                        <string>Month</string>
+                    </scopeButtonTitles>
                     <connections>
                         <outlet property="delegate" destination="-1" id="UK7-Xv-5Zg"/>
                     </connections>
@@ -33,10 +38,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="oiA-Cd-pX4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8jy-cZ-HVp"/>
+                <constraint firstAttribute="bottom" secondItem="oiA-Cd-pX4" secondAttribute="bottom" id="5sc-qk-8bX"/>
+                <constraint firstItem="oiA-Cd-pX4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7qv-eV-sEU"/>
+                <constraint firstItem="oiA-Cd-pX4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="104" id="8jy-cZ-HVp"/>
+                <constraint firstAttribute="trailing" secondItem="oiA-Cd-pX4" secondAttribute="trailing" id="GL7-cf-OTB"/>
                 <constraint firstAttribute="bottom" secondItem="oiA-Cd-pX4" secondAttribute="bottom" id="J0S-nx-Eik"/>
+                <constraint firstItem="oiA-Cd-pX4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JaH-yV-nFl"/>
                 <constraint firstItem="oiA-Cd-pX4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d5n-I7-Nag"/>
+                <constraint firstAttribute="trailing" secondItem="oiA-Cd-pX4" secondAttribute="trailing" id="dvd-fN-WDb"/>
+                <constraint firstAttribute="bottom" secondItem="oiA-Cd-pX4" secondAttribute="bottom" id="ez2-e0-JkO"/>
                 <constraint firstAttribute="trailing" secondItem="oiA-Cd-pX4" secondAttribute="trailing" id="qN3-cg-7v4"/>
+                <constraint firstItem="8o0-SW-rjr" firstAttribute="leading" secondItem="oiA-Cd-pX4" secondAttribute="leading" id="qPk-lT-Svk"/>
+                <constraint firstItem="8o0-SW-rjr" firstAttribute="trailing" secondItem="oiA-Cd-pX4" secondAttribute="trailing" id="s8Y-f1-SYZ"/>
+                <constraint firstItem="8o0-SW-rjr" firstAttribute="bottom" secondItem="oiA-Cd-pX4" secondAttribute="top" id="vJw-yp-Myu"/>
             </constraints>
             <point key="canvasLocation" x="413" y="382"/>
         </view>
