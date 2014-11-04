@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TDStartViewController" customModule="SimpleToDo" customModuleProvider="target">
             <connections>
+                <outlet property="searchDisplayController" destination="ZXb-oy-Ts5" id="xLp-br-Qwt"/>
                 <outlet property="tableView" destination="oiA-Cd-pX4" id="xHK-Uy-Mhw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,13 +16,20 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oiA-Cd-pX4">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oiA-Cd-pX4">
+                    <rect key="frame" x="0.0" y="109" width="320" height="459"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="VHv-NM-SQy"/>
                     </connections>
                 </tableView>
+                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-SW-rjr">
+                    <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="UK7-Xv-5Zg"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -32,6 +40,15 @@
             </constraints>
             <point key="canvasLocation" x="413" y="382"/>
         </view>
+        <searchDisplayController id="ZXb-oy-Ts5">
+            <connections>
+                <outlet property="delegate" destination="-1" id="7fe-jo-2td"/>
+                <outlet property="searchBar" destination="8o0-SW-rjr" id="Bv3-Tv-AiP"/>
+                <outlet property="searchContentsController" destination="-1" id="4Ps-vX-CGO"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="0xh-5p-PRK"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="vla-q5-hyl"/>
+            </connections>
+        </searchDisplayController>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
