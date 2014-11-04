@@ -18,6 +18,8 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UIAlertVie
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNoteButtonAction"))
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("deleteLastNoteButtonAction"))
+        
         updateData()
     }
 
@@ -29,7 +31,7 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UIAlertVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
         
-        cell.textLabel.text = notes[indexPath.row].content
+        cell.textLabel.text = notes[indexPath.row].content + " \(notes[indexPath.row].noteId)"
         
         return cell
     }
@@ -39,6 +41,11 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UIAlertVie
         let alertView = UIAlertView(title: "", message: "Enter note content", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Add")
         alertView.alertViewStyle = .PlainTextInput
         alertView.show()
+    }
+    
+    func deleteLastNoteButtonAction() {
+        TDDataModel.sharedInstance.deleteNoteById(Int(TDDataModel.sharedInstance.notes[notes.count - 1].noteId))
+        updateData()
     }
     
     // MARK: - alert view delegate

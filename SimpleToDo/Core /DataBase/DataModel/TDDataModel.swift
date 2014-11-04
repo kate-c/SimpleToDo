@@ -31,7 +31,7 @@ class TDDataModel: NSObject {
     
     //MARK: - notes
     var notes: [TDNoteEntity] {
-        return (TDNoteEntity.MR_findAll() as? [TDNoteEntity]) ?? []
+        return (TDNoteEntity.MR_findAllSortedBy("creationDate", ascending: true) as? [TDNoteEntity]) ?? []
     }
     
     private var maxNoteId: Int {
@@ -53,6 +53,13 @@ class TDDataModel: NSObject {
         note.noteId = maxNoteId + 1
         
         context.MR_saveToPersistentStoreAndWait()
+    }
+    
+    func deleteNoteById(id: Int) {
+        var note: TDNoteEntity? = TDNoteEntity.MR_findFirstByAttribute("noteId", withValue: id) as? TDNoteEntity
+        
+        note?.MR_deleteInContext(context)
+        context.MR_saveOnlySelfAndWait()
     }
 
 }
