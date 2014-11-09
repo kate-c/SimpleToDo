@@ -46,13 +46,14 @@ class TDDataModel: NSObject {
         return maxId
     }
     
-    func addNote(content: String) {
+    func addNote(content: String) -> TDNoteEntity {
         let note = TDNoteEntity.MR_createEntity() as TDNoteEntity
         note.content = content
         note.creationDate = NSDate()
         note.noteId = maxNoteId + 1
         
         context.MR_saveToPersistentStoreAndWait()
+        return note
     }
     
     func deleteNoteById(id: Int) {

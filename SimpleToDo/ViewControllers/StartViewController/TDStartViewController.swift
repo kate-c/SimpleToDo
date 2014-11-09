@@ -19,7 +19,7 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNoteButtonAction"))
         
-        updateData([], addTrueDeleteFalse: true)
+        self.reloadTableView()
         
         let reloadTableView = "reloadTableView"
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableView", name: reloadTableView, object: nil)
@@ -68,21 +68,28 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         let textField = alertView.textFieldAtIndex(0)
         if buttonIndex != 0 {
-            TDDataModel.sharedInstance.addNote(textField?.text ?? "")
-            updateData([NSIndexPath(index: buttonIndex)], addTrueDeleteFalse: true)
+            let note = TDDataModel.sharedInstance.addNote(textField?.text ?? "")
+            addData([note])
         }        
     }
     
     // MARK: - Add or delete updatind
-    func updateData(arrayOfIndexPathes: [NSIndexPath], addTrueDeleteFalse: Bool) {
+    func addData(addedNotes: [TDNoteEntity]) {
         notes = TDDataModel.sharedInstance.notes
         
-        if (addTrueDeleteFalse) {
-            //tableView.reloadRowsAtIndexPaths(arrayOfIndexPathes, withRowAnimation: UITableViewRowAnimation.Automatic)
-            tableView.reloadData()
-        } else {
-            tableView.deleteRowsAtIndexPaths(arrayOfIndexPathes, withRowAnimation: UITableViewRowAnimation.Automatic)
+        var indexes: [NSIndexPath] = []
+        for note in addedNotes {
+            if let index = find(notes, note) {
+                indexes.append(NSIndexPath(forRow: index, inSection: 0))
+            }
         }
+        
+        tableView.insertRowsAtIndexPaths(indexes, withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+    
+    func removeData(arrayOfIndexPathes: [NSIndexPath]) {
+        notes = TDDataModel.sharedInstance.notes
+        tableView.deleteRowsAtIndexPaths(arrayOfIndexPathes, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
     // MARK: - filter options
@@ -114,7 +121,7 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             TDDataModel.sharedInstance.deleteNoteById(Int(notes[indexPath.row].noteId))
-            updateData([indexPath], addTrueDeleteFalse: false)
+            removeData([indexPath])
         }
     }
     

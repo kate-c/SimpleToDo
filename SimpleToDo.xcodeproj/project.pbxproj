@@ -84,6 +84,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9204E5241A1004E4007962AF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9204E5251A1004EB007962AF /* Classes */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		9204E5251A1004EB007962AF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		A64BBA111A0BEE9000D8A30A /* InfoViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A66AE0D31A056FB9000C529E /* TDAppDelegate.swift */,
+				9204E5241A1004E4007962AF /* Common */,
 				A66AE0F51A056FFD000C529E /* Core */,
 				A66AE0F41A056FEE000C529E /* ViewControllers */,
 				A66AE0F31A056FD0000C529E /* Resourses */,
