@@ -1,0 +1,78 @@
+//
+//  TDNoteGroupsViewController.swift
+//  SimpleToDo
+//
+//  Created by MacAir on 10/11/14.
+//  Copyright (c) 2014 Katrin Chirkova. All rights reserved.
+//
+
+import UIKit
+
+class TDNoteGroupsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    var groups: [TDNoteGroupEntity] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        groups = TDDataModel.sharedInstance.groups
+        
+        let identifier: String = "TDNoteGroupCell";
+        self.tableView.registerNib(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier);
+        
+         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNoteGroupsButtonAction"))
+        
+    }
+    
+    // MARK: - table view delegate
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return groups.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let identifier = "TDNoteGroupCell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as TDNoteGroupCell
+        
+        cell.folderNameLabel.text = groups[indexPath.row].name
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44
+    }
+    
+    // MARK: - button action
+    func addNoteGroupsButtonAction() {
+        let alertView = UIAlertView(title: "", message: "Enter folder name", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Add")
+        alertView.alertViewStyle = .PlainTextInput
+        alertView.show()
+    }
+    
+    // MARK: - alert view delegate
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        let textField = alertView.textFieldAtIndex(0)
+        if buttonIndex != 0 {
+            let group = TDDataModel.sharedInstance.addGroup(textField?.text ?? "")
+            addData([group])
+        }
+    }
+    
+    // MARK: - add and remove data
+    func addData(addedGroups: [TDNoteGroupEntity]) {
+        groups = TDDataModel.sharedInstance.groups
+        
+        var indexes: [NSIndexPath] = []
+        for group in addedGroups {
+            if let index = find(groups, group) {
+                indexes.append(NSIndexPath(forRow: index, inSection: 0))
+            }
+        }
+        
+        tableView.insertRowsAtIndexPaths(indexes, withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+
+
+}

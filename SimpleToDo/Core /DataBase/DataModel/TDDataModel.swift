@@ -34,33 +34,28 @@ class TDDataModel: NSObject {
         return (TDNoteEntity.MR_findAllSortedBy("creationDate", ascending: true) as? [TDNoteEntity]) ?? []
     }
     
-    private var maxNoteId: Int {
-        var maxId: Int = 0
-        
-        for note in notes {
-            if note.noteId.integerValue > maxId {
-                maxId = note.noteId.integerValue
-            }
-        }
-        
-        return maxId
+    private func maxNoteIdInGroup(group: TDNoteGroupEntity) -> Int {
+        return group.maxNoteId.integerValue
     }
     
-    func addNote(content: String) -> TDNoteEntity {
+    func addNote(content: String, toGroup group: TDNoteGroupEntity) -> TDNoteEntity {
         let note = TDNoteEntity.MR_createEntity() as TDNoteEntity
         note.content = content
         note.creationDate = NSDate()
-        note.noteId = maxNoteId + 1
+        note.noteId = maxNoteIdInGroup(group) + 1
+        
+        group.maxNoteId = note.noteId
+        group.addNotesObject(note)
         
         context.MR_saveToPersistentStoreAndWait()
         return note
     }
     
-    func deleteNoteById(id: Int) {
+    func deleteNoteById(id: Int, inGroup group: TDNoteGroupEntity) {
         var note: TDNoteEntity? = TDNoteEntity.MR_findFirstByAttribute("noteId", withValue: id) as? TDNoteEntity
         
         note?.MR_deleteInContext(context)
-        context.MR_saveOnlySelfAndWait()
+        context.MR_saveToPersistentStoreAndWait()
     }
 
     func findByNoteInfo(info: String) -> [TDNoteEntity] {        
@@ -72,6 +67,34 @@ class TDDataModel: NSObject {
     
     func changeNoteByDate(date: NSDate, note: TDNoteEntity) {
         note.creationDate = date
-        context.MR_saveOnlySelfAndWait()
+        context.MR_saveToPersistentStoreAndWait()
     }
+    
+    // MARK: - groups
+    var groups: [TDNoteGroupEntity] {
+        return (TDNoteGroupEntity.MR_findAllSortedBy("name", ascending: true) as? [TDNoteGroupEntity]) ?? []
+    }
+    
+    private var maxGroupId: Int {
+        var maxId: Int = 0
+        
+        for group in groups {
+            if group.noteGroupId.integerValue > maxId {
+                maxId = group.noteGroupId.integerValue
+            }
+        }
+        
+        return maxId
+    }
+    
+    func addGroup(name: String) -> TDNoteGroupEntity{
+        let group = TDNoteGroupEntity.MR_createEntity() as TDNoteGroupEntity
+        group.name = name
+        group.maxNoteId = -1
+        group.noteGroupId = maxGroupId + 1
+        
+        context.MR_saveToPersistentStoreAndWait()
+        return group
+    }
+    
 }

@@ -19,7 +19,7 @@ class TDAppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
         
-        let startViewController = TDStartViewController(nibName: "TDStartViewController", bundle: nil)
+        let startViewController = TDNoteGroupsViewController(nibName: "TDNoteGroupsViewController", bundle: nil)
         let navigationVC = UINavigationController(rootViewController: startViewController)
         window?.rootViewController = navigationVC
 
