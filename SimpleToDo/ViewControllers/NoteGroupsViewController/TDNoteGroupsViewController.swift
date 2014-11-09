@@ -44,6 +44,14 @@ class TDNoteGroupsViewController: UIViewController, UITableViewDataSource, UITab
         return 44
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let notesVC = TDNotesViewController(nibName: "TDNotesViewController", bundle: nil)
+        notesVC.group = groups[indexPath.row]
+        self.navigationController?.pushViewController(notesVC, animated: true)
+    }
+    
     // MARK: - button action
     func addNoteGroupsButtonAction() {
         let alertView = UIAlertView(title: "", message: "Enter folder name", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Add")

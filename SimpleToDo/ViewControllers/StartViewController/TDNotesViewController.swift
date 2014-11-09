@@ -8,11 +8,12 @@
 
 import UIKit
 
-class TDStartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
+class TDNotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var notes: [TDNoteEntity] = []
     var filteredNotes: [TDNoteEntity] = []
+    var group: TDNoteGroupEntity!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,14 +69,14 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         let textField = alertView.textFieldAtIndex(0)
         if buttonIndex != 0 {
-            let note = TDDataModel.sharedInstance.addNote(textField?.text ?? "")
+            let note = TDDataModel.sharedInstance.addNote(textField?.text ?? "", toGroup: group)
             addData([note])
         }        
     }
     
     // MARK: - Add or delete updatind
     func addData(addedNotes: [TDNoteEntity]) {
-        notes = TDDataModel.sharedInstance.notes
+        notes = TDDataModel.sharedInstance.notesInGroup(group)
         
         var indexes: [NSIndexPath] = []
         for note in addedNotes {
@@ -88,13 +89,13 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func removeData(arrayOfIndexPathes: [NSIndexPath]) {
-        notes = TDDataModel.sharedInstance.notes
+        notes = TDDataModel.sharedInstance.notesInGroup(group)
         tableView.deleteRowsAtIndexPaths(arrayOfIndexPathes, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
     // MARK: - filter options
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        filteredNotes = TDDataModel.sharedInstance.findByNoteInfo(searchString)
+        filteredNotes = TDDataModel.sharedInstance.findByNoteInfo(searchString, inGroup: group)
         return true
     }
     
@@ -120,14 +121,14 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            TDDataModel.sharedInstance.deleteNoteById(Int(notes[indexPath.row].noteId))
+            TDDataModel.sharedInstance.deleteNoteById(Int(notes[indexPath.row].noteId), inGroup: group)
             removeData([indexPath])
         }
     }
     
     // MARK: - for NSNotificationCenter
     func reloadTableView() {
-        notes = TDDataModel.sharedInstance.notes
+        notes = TDDataModel.sharedInstance.notesInGroup(group)
         tableView.reloadData()
     }
 

@@ -30,8 +30,11 @@ class TDDataModel: NSObject {
     }
     
     //MARK: - notes
-    var notes: [TDNoteEntity] {
-        return (TDNoteEntity.MR_findAllSortedBy("creationDate", ascending: true) as? [TDNoteEntity]) ?? []
+    func notesInGroup(group: TDNoteGroupEntity) -> [TDNoteEntity] {
+        let predicate = NSPredicate(format: "group = %@", group)
+        let notes = TDNoteEntity.MR_findAllSortedBy("creationDate", ascending: true, withPredicate: predicate)
+        println(notes)
+        return (notes as? [TDNoteEntity]) ?? []
     }
     
     private func maxNoteIdInGroup(group: TDNoteGroupEntity) -> Int {
@@ -43,6 +46,7 @@ class TDDataModel: NSObject {
         note.content = content
         note.creationDate = NSDate()
         note.noteId = maxNoteIdInGroup(group) + 1
+        note.group = group
         
         group.maxNoteId = note.noteId
         group.addNotesObject(note)
@@ -52,15 +56,16 @@ class TDDataModel: NSObject {
     }
     
     func deleteNoteById(id: Int, inGroup group: TDNoteGroupEntity) {
-        var note: TDNoteEntity? = TDNoteEntity.MR_findFirstByAttribute("noteId", withValue: id) as? TDNoteEntity
+        var note: TDNoteEntity? = TDNoteEntity.MR_findFirstWithPredicate(NSPredicate(format: "(group = %@) AND (noteId = %i)", group, id)) as? TDNoteEntity
         
         note?.MR_deleteInContext(context)
         context.MR_saveToPersistentStoreAndWait()
     }
 
-    func findByNoteInfo(info: String) -> [TDNoteEntity] {        
-        return TDDataModel.sharedInstance.notes.filter({( note: TDNoteEntity) -> Bool in
-            var stringMatch = note.content.rangeOfString(info)
+    func findByNoteInfo(var info: String, inGroup: TDNoteGroupEntity) -> [TDNoteEntity] {
+        info = info.lowercaseString
+        return TDDataModel.sharedInstance.notesInGroup(inGroup).filter({( note: TDNoteEntity) -> Bool in
+            var stringMatch = note.content.lowercaseString.rangeOfString(info)
             return stringMatch != nil
         })
     }
