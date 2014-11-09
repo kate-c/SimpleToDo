@@ -62,4 +62,15 @@ class TDDataModel: NSObject {
         context.MR_saveOnlySelfAndWait()
     }
 
+    func findByNoteInfo(info: String) -> [TDNoteEntity] {        
+        return TDDataModel.sharedInstance.notes.filter({( note: TDNoteEntity) -> Bool in
+            var stringMatch = note.content.rangeOfString(info)
+            return stringMatch != nil
+        })
+    }
+    
+    func changeNoteByDate(date: NSDate, note: TDNoteEntity) {
+        note.creationDate = date
+        context.MR_saveOnlySelfAndWait()
+    }
 }

@@ -10,6 +10,8 @@
 		1028BC6B8F6BA8A8AF05D78A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F533EBC6883C9A14394A515 /* libPods.a */; };
 		926B19771A0590BC00760C7B /* TDNoteEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 926B19761A0590BC00760C7B /* TDNoteEntity.m */; };
 		926B197A1A0590BD00760C7B /* TDNoteGroupEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 926B19791A0590BD00760C7B /* TDNoteGroupEntity.m */; };
+		A64BBA141A0BEF2F00D8A30A /* TDInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64BBA121A0BEF2F00D8A30A /* TDInfoViewController.swift */; };
+		A64BBA151A0BEF2F00D8A30A /* TDInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64BBA131A0BEF2F00D8A30A /* TDInfoViewController.xib */; };
 		A66AE0D41A056FB9000C529E /* TDAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0D31A056FB9000C529E /* TDAppDelegate.swift */; };
 		A66AE0DB1A056FB9000C529E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0DA1A056FB9000C529E /* Images.xcassets */; };
 		A66AE0DE1A056FB9000C529E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0DC1A056FB9000C529E /* LaunchScreen.xib */; };
@@ -38,6 +40,8 @@
 		926B19761A0590BC00760C7B /* TDNoteEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDNoteEntity.m; path = "Core /DataBase/Entities/TDNoteEntity.m"; sourceTree = "<group>"; };
 		926B19781A0590BD00760C7B /* TDNoteGroupEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDNoteGroupEntity.h; path = "Core /DataBase/Entities/TDNoteGroupEntity.h"; sourceTree = "<group>"; };
 		926B19791A0590BD00760C7B /* TDNoteGroupEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDNoteGroupEntity.m; path = "Core /DataBase/Entities/TDNoteGroupEntity.m"; sourceTree = "<group>"; };
+		A64BBA121A0BEF2F00D8A30A /* TDInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDInfoViewController.swift; path = ViewControllers/InfoViewController/TDInfoViewController.swift; sourceTree = "<group>"; };
+		A64BBA131A0BEF2F00D8A30A /* TDInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDInfoViewController.xib; path = ViewControllers/InfoViewController/TDInfoViewController.xib; sourceTree = "<group>"; };
 		A66AE0CE1A056FB9000C529E /* SimpleToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66AE0D21A056FB9000C529E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A66AE0D31A056FB9000C529E /* TDAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDAppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 				7F533EBC6883C9A14394A515 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A64BBA111A0BEE9000D8A30A /* InfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A64BBA121A0BEF2F00D8A30A /* TDInfoViewController.swift */,
+				A64BBA131A0BEF2F00D8A30A /* TDInfoViewController.xib */,
+			);
+			name = InfoViewController;
 			sourceTree = "<group>";
 		};
 		A66AE0C51A056FB9000C529E = {
@@ -151,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				A66AE0FA1A05706F000C529E /* StartViewController */,
+				A64BBA111A0BEE9000D8A30A /* InfoViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A64BBA151A0BEF2F00D8A30A /* TDInfoViewController.xib in Resources */,
 				A66AE0DE1A056FB9000C529E /* LaunchScreen.xib in Resources */,
 				A66AE0DB1A056FB9000C529E /* Images.xcassets in Resources */,
 				A66AE0F91A05704A000C529E /* TDStartViewController.xib in Resources */,
@@ -347,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				926B19771A0590BC00760C7B /* TDNoteEntity.m in Sources */,
+				A64BBA141A0BEF2F00D8A30A /* TDInfoViewController.swift in Sources */,
 				A6A4C5D21A057E4800A73089 /* TDNotesModel.xcdatamodeld in Sources */,
 				A6A4C5D81A0581E700A73089 /* TDDataModel.swift in Sources */,
 				A66AE0D41A056FB9000C529E /* TDAppDelegate.swift in Sources */,

@@ -19,9 +19,10 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addNoteButtonAction"))
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("deleteLastNoteButtonAction"))
+        updateData([], addTrueDeleteFalse: true)
         
-        updateData()
+        let reloadTableView = "reloadTableView"
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableView", name: reloadTableView, object: nil)
     }
 
     // MARK: - table view data sourse
@@ -63,51 +64,49 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
         alertView.show()
     }
     
-    func deleteLastNoteButtonAction() {
-        TDDataModel.sharedInstance.deleteNoteById(Int(TDDataModel.sharedInstance.notes[notes.count - 1].noteId))
-        updateData()
-    }
-    
     // MARK: - alert view delegate
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         let textField = alertView.textFieldAtIndex(0)
         if buttonIndex != 0 {
             TDDataModel.sharedInstance.addNote(textField?.text ?? "")
-            updateData()
+            updateData([NSIndexPath(index: buttonIndex)], addTrueDeleteFalse: true)
         }        
     }
     
-    func updateData() {
+    // MARK: - Add or delete updatind
+    func updateData(arrayOfIndexPathes: [NSIndexPath], addTrueDeleteFalse: Bool) {
         notes = TDDataModel.sharedInstance.notes
-        tableView.reloadData()
+        
+        if (addTrueDeleteFalse) {
+            //tableView.reloadRowsAtIndexPaths(arrayOfIndexPathes, withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.reloadData()
+        } else {
+            tableView.deleteRowsAtIndexPaths(arrayOfIndexPathes, withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
     
     // MARK: - filter options
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as [String]
-        let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
-        self.filterContentForSearchText(searchString, scope: selectedScope)
+        filteredNotes = TDDataModel.sharedInstance.findByNoteInfo(searchString)
         return true
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredNotes = notes.filter({( note: TDNoteEntity) -> Bool in
-            var stringMatch = note.content.rangeOfString(searchText)
-            return stringMatch != nil
-        })
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController!,
-        shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-            let scope = self.searchDisplayController!.searchBar.scopeButtonTitles as [String]
-            self.filterContentForSearchText(self.searchDisplayController!.searchBar.text, scope: scope[searchOption])
-            return true
-    }
-    
+    // MARK: - show cell info
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //self.performSegueWithIdentifier("Detail", sender: tableView)
+        let infoVC = TDInfoViewController(nibName: "TDInfoViewController", bundle: nil)
+        
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            infoVC.note = filteredNotes[indexPath.row]
+        } else {
+            infoVC.note = notes[indexPath.row]
+        }
+        
+        infoVC.view.backgroundColor = UIColor.yellowColor()
+        self.navigationController?.pushViewController(infoVC, animated: true)
+        
     }
     
+    // MARK - delete cell by swipe
     func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
         return true
     }
@@ -115,23 +114,14 @@ class TDStartViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             TDDataModel.sharedInstance.deleteNoteById(Int(notes[indexPath.row].noteId))
-            updateData()           
+            updateData([indexPath], addTrueDeleteFalse: false)
         }
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        if segue.identifier == "Detail" {
-//            let noteDetailViewController = segue.destinationViewController as UIViewController
-//            if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
-//                let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-//                let destinationTitle = filteredNotes[indexPath.row].content
-//                noteDetailViewController.title = destinationTitle
-//            } else {
-//                let indexPath = self.tableView.indexPathForSelectedRow()!
-//                let destinationTitle = notes[indexPath.row].content
-//                noteDetailViewController.title = destinationTitle
-//            }
-//        }
-//    }
+    // MARK: - for NSNotificationCenter
+    func reloadTableView() {
+        notes = TDDataModel.sharedInstance.notes
+        tableView.reloadData()
+    }
 
 }
