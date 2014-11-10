@@ -95,11 +95,18 @@ class TDDataModel: NSObject {
     func addGroup(name: String) -> TDNoteGroupEntity{
         let group = TDNoteGroupEntity.MR_createEntity() as TDNoteGroupEntity
         group.name = name
-        group.maxNoteId = -1
+        group.maxNoteId = 0
         group.noteGroupId = maxGroupId + 1
         
         context.MR_saveToPersistentStoreAndWait()
         return group
+    }
+    
+    func deleteGroupById(id: Int) {
+        var group: TDNoteGroupEntity? = TDNoteGroupEntity.MR_findFirstWithPredicate(NSPredicate(format: "(noteGroupId = %i)", id)) as? TDNoteGroupEntity
+        
+        group?.MR_deleteInContext(context)
+        context.MR_saveToPersistentStoreAndWait()
     }
     
 }

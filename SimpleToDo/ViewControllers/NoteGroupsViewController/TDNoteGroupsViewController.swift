@@ -81,6 +81,21 @@ class TDNoteGroupsViewController: UIViewController, UITableViewDataSource, UITab
         
         tableView.insertRowsAtIndexPaths(indexes, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
-
+    
+    func removeData(arrayOfIndexPathes: [NSIndexPath]) {
+        groups = TDDataModel.sharedInstance.groups        
+        tableView.deleteRowsAtIndexPaths(arrayOfIndexPathes, withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+    
+    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            TDDataModel.sharedInstance.deleteGroupById(Int(groups[indexPath.row].noteGroupId))
+            removeData([indexPath])
+        }
+    }
 
 }
