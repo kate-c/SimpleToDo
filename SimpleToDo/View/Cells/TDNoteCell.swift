@@ -10,6 +10,10 @@ import UIKit
 
 class TDNoteCell: UITableViewCell {
 
+    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var remindDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +24,18 @@ class TDNoteCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func fillWithNote(note: TDNoteEntity) {
+        self.infoLabel.text = note.content
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        self.remindDateLabel.text = dateFormatter.stringFromDate(note.creationDate)
+    }
+    
+    @IBAction func checkButtonAction(sender: UIButton) {
+        
+    }
+    
     
 }

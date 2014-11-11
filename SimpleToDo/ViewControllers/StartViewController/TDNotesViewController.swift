@@ -54,6 +54,8 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
             tempNote = notes[indexPath.row]
         }
         
+        cell.fillWithNote(tempNote)
+        
 //        cell.textLabel.text = tempNote.content
 //        
 //        var dateFormatter = NSDateFormatter()

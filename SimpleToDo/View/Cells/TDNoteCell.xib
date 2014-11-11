@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -23,6 +23,9 @@
                         <state key="normal" title="Button">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="checkButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6ht-8k-GQL"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGU-pQ-OsN">
                         <rect key="frame" x="62" y="10" width="250" height="20"/>
@@ -52,6 +55,11 @@
                     <constraint firstItem="kQw-Ps-Yf1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="uHO-HV-WaI"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="checkButton" destination="kQw-Ps-Yf1" id="PAm-IP-s4V"/>
+                <outlet property="infoLabel" destination="sGU-pQ-OsN" id="eiY-2o-TtG"/>
+                <outlet property="remindDateLabel" destination="V3n-SM-Jrh" id="mbE-gp-YvJ"/>
+            </connections>
             <point key="canvasLocation" x="290" y="291.5"/>
         </tableViewCell>
     </objects>
