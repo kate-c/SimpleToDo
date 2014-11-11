@@ -6,5 +6,8 @@
 #import "TDNoteGroupEntity.h"
 #import "TDNoteEntity.h"
 
+// View
+#import "PSXibView.h"
+
 // Pods
 #import "CoreData+MagicalRecord.h"

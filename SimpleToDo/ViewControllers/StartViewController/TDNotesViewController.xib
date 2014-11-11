@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TDNotesViewController" customModule="SimpleToDo" customModuleProvider="target">
             <connections>
+                <outlet property="changeNoteView" destination="4Jg-7i-j0j" id="J6t-UO-srz"/>
                 <outlet property="searchDisplayController" destination="ZXb-oy-Ts5" id="xLp-br-Qwt"/>
                 <outlet property="tableView" destination="oiA-Cd-pX4" id="xHK-Uy-Mhw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -40,12 +41,24 @@
                         <outlet property="delegate" destination="-1" id="V9c-5X-66y"/>
                     </connections>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-7i-j0j" customClass="TDChangeNoteView" customModule="SimpleToDo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="4Jg-7i-j0j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DgX-pJ-qF3"/>
                 <constraint firstItem="oiA-Cd-pX4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Giw-Xj-dNh"/>
+                <constraint firstAttribute="trailing" secondItem="4Jg-7i-j0j" secondAttribute="trailing" id="Ip1-t6-bdr"/>
+                <constraint firstAttribute="trailing" secondItem="4Jg-7i-j0j" secondAttribute="trailing" id="JZg-QJ-1vH"/>
+                <constraint firstAttribute="bottom" secondItem="4Jg-7i-j0j" secondAttribute="bottom" id="MIp-uP-fNW"/>
+                <constraint firstItem="4Jg-7i-j0j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rf7-yi-pb6"/>
                 <constraint firstAttribute="trailing" secondItem="oiA-Cd-pX4" secondAttribute="trailing" id="Tvz-JA-nz2"/>
+                <constraint firstItem="4Jg-7i-j0j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vlb-91-cjf"/>
                 <constraint firstAttribute="bottom" secondItem="oiA-Cd-pX4" secondAttribute="bottom" id="X4B-dy-26H"/>
+                <constraint firstAttribute="bottom" secondItem="4Jg-7i-j0j" secondAttribute="bottom" id="XBy-8r-H9N"/>
+                <constraint firstItem="4Jg-7i-j0j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nG8-Un-Iei"/>
                 <constraint firstItem="oiA-Cd-pX4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ryN-GK-ZGu"/>
             </constraints>
             <point key="canvasLocation" x="413" y="382"/>

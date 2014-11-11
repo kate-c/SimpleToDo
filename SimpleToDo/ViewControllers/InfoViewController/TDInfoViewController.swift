@@ -14,7 +14,7 @@ class TDInfoViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var note: TDNoteEntity?
-    var rowOfIndexPath: Int?
+    //var rowOfIndexPath: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,6 +11,8 @@ import UIKit
 class TDNotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var changeNoteView: TDChangeNoteView!
+    
     var notes: [TDNoteEntity] = []
     var filteredNotes: [TDNoteEntity] = []
     var group: TDNoteGroupEntity!
@@ -24,6 +26,9 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let reloadTableView = "reloadTableView"
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableView", name: reloadTableView, object: nil)
+        
+        let identifier: String = "TDNoteCell";
+        self.tableView.registerNib(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier);
     }
 
     // MARK: - table view data sourse
@@ -36,7 +41,10 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
+        //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
+        
+        let identifier = "TDNoteCell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as TDNoteCell
         
         var tempNote : TDNoteEntity
        
@@ -46,16 +54,20 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
             tempNote = notes[indexPath.row]
         }
         
-        cell.textLabel.text = tempNote.content
-        
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-        
-        cell.detailTextLabel?.text = "id: \(tempNote.noteId)" + " creation date: \(dateFormatter.stringFromDate(tempNote.creationDate))"
-        
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        
+//        cell.textLabel.text = tempNote.content
+//        
+//        var dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+//        
+//        cell.detailTextLabel?.text = "id: \(tempNote.noteId)" + " creation date: \(dateFormatter.stringFromDate(tempNote.creationDate))"
+//        
+//        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+//        
         return cell
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
     // MARK: - button action
@@ -101,16 +113,28 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - show cell info
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let infoVC = TDInfoViewController(nibName: "TDInfoViewController", bundle: nil)
+//        let infoVC = TDInfoViewController(nibName: "TDInfoViewController", bundle: nil)
+//        
+//        if tableView == self.searchDisplayController!.searchResultsTableView {
+//            infoVC.note = filteredNotes[indexPath.row]
+//        } else {
+//            infoVC.note = notes[indexPath.row]
+//        }
+//        
+//        //infoVC.view.backgroundColor = UIColor.yellowColor()
+//        self.navigationController?.pushViewController(infoVC, animated: true)
         
-        if tableView == self.searchDisplayController!.searchResultsTableView {
-            infoVC.note = filteredNotes[indexPath.row]
-        } else {
-            infoVC.note = notes[indexPath.row]
-        }
+        changeNoteView.hidden = false
         
-        infoVC.view.backgroundColor = UIColor.yellowColor()
-        self.navigationController?.pushViewController(infoVC, animated: true)
+//        let datePickerView = TDChangeNoteView( (nibName: "TDChangeNoteView", bundle: nil)
+//                if tableView == self.searchDisplayController!.searchResultsTableView {
+//                    datePickerView.note = filteredNotes[indexPath.row]
+//                } else {
+//                    datePickerView.note = notes[indexPath.row]
+//                }
+        
+        
+    
         
     }
     
@@ -131,5 +155,7 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
         notes = TDDataModel.sharedInstance.notesInGroup(group)
         tableView.reloadData()
     }
+    
+
 
 }
