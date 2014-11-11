@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TDNotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
+class TDNotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, TDChangeNoteViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var changeNoteView: TDChangeNoteView!
@@ -16,6 +16,7 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
     var notes: [TDNoteEntity] = []
     var filteredNotes: [TDNoteEntity] = []
     var group: TDNoteGroupEntity!
+    var selectedIndexPath: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let identifier: String = "TDNoteCell";
         self.tableView.registerNib(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier);
+        
+        self.changeNoteView.delegate = self
     }
 
     // MARK: - table view data sourse
@@ -127,6 +130,7 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
 //        self.navigationController?.pushViewController(infoVC, animated: true)
         
         changeNoteView.hidden = false
+        selectedIndexPath = indexPath
         
 //        let datePickerView = TDChangeNoteView( (nibName: "TDChangeNoteView", bundle: nil)
 //                if tableView == self.searchDisplayController!.searchResultsTableView {
@@ -158,6 +162,9 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadData()
     }
     
-
+    // MARK: - change note delegate
+    func noteView(noteView: TDChangeNoteView, changedValueToDate date: NSDate) {
+        
+    }
 
 }

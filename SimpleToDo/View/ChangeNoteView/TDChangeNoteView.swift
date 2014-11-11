@@ -8,25 +8,22 @@
 
 import UIKit
 
+protocol TDChangeNoteViewDelegate {
+    func noteView(noteView: TDChangeNoteView, changedValueToDate date: NSDate)
+}
+
 class TDChangeNoteView: PSXibView {
 
     @IBOutlet weak var dataPicker: UIDatePicker!
     
-    var note: TDNoteEntity?
+    var delegate: TDChangeNoteViewDelegate?
     
     required init(coder aDecoder: NSCoder) {
         super.init(nibName: "TDChangeNoteView", andCoder: aDecoder)
     }
 
     @IBAction func buttonDataPickerChanged(sender: UIDatePicker) {
-        note?.creationDate = dataPicker.date
-        
-        if let temp = note {
-            TDDataModel.sharedInstance.changeNoteByDate(dataPicker.date, note: temp)
-            let reloadTableView = "reloadTableView"
-            NSNotificationCenter.defaultCenter().postNotificationName(reloadTableView, object: nil)
-        }
-        
+        delegate?.noteView(self, changedValueToDate: dataPicker.date)
     }
     
     @IBAction func buttonAction(sender: UIButton) {

@@ -19,8 +19,6 @@
 		A623787D1A10F3A800314170 /* PSXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = A623787C1A10F3A800314170 /* PSXibView.m */; };
 		A62378811A1106EB00314170 /* TDNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623787F1A1106EB00314170 /* TDNoteCell.swift */; };
 		A62378821A1106EB00314170 /* TDNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62378801A1106EB00314170 /* TDNoteCell.xib */; };
-		A64BBA141A0BEF2F00D8A30A /* TDInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64BBA121A0BEF2F00D8A30A /* TDInfoViewController.swift */; };
-		A64BBA151A0BEF2F00D8A30A /* TDInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64BBA131A0BEF2F00D8A30A /* TDInfoViewController.xib */; };
 		A66AE0D41A056FB9000C529E /* TDAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AE0D31A056FB9000C529E /* TDAppDelegate.swift */; };
 		A66AE0DB1A056FB9000C529E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0DA1A056FB9000C529E /* Images.xcassets */; };
 		A66AE0DE1A056FB9000C529E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66AE0DC1A056FB9000C529E /* LaunchScreen.xib */; };
@@ -59,8 +57,6 @@
 		A623787C1A10F3A800314170 /* PSXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSXibView.m; sourceTree = "<group>"; };
 		A623787F1A1106EB00314170 /* TDNoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDNoteCell.swift; path = View/Cells/TDNoteCell.swift; sourceTree = "<group>"; };
 		A62378801A1106EB00314170 /* TDNoteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDNoteCell.xib; path = View/Cells/TDNoteCell.xib; sourceTree = "<group>"; };
-		A64BBA121A0BEF2F00D8A30A /* TDInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDInfoViewController.swift; path = ViewControllers/InfoViewController/TDInfoViewController.swift; sourceTree = "<group>"; };
-		A64BBA131A0BEF2F00D8A30A /* TDInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDInfoViewController.xib; path = ViewControllers/InfoViewController/TDInfoViewController.xib; sourceTree = "<group>"; };
 		A66AE0CE1A056FB9000C529E /* SimpleToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66AE0D21A056FB9000C529E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A66AE0D31A056FB9000C529E /* TDAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDAppDelegate.swift; sourceTree = "<group>"; };
@@ -165,15 +161,6 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		A64BBA111A0BEE9000D8A30A /* InfoViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A64BBA121A0BEF2F00D8A30A /* TDInfoViewController.swift */,
-				A64BBA131A0BEF2F00D8A30A /* TDInfoViewController.xib */,
-			);
-			name = InfoViewController;
-			sourceTree = "<group>";
-		};
 		A66AE0C51A056FB9000C529E = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +235,6 @@
 			children = (
 				A62378661A100F2600314170 /* NoteGroupsViewController */,
 				A66AE0FA1A05706F000C529E /* NotesViewController */,
-				A64BBA111A0BEE9000D8A30A /* InfoViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -392,7 +378,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A64BBA151A0BEF2F00D8A30A /* TDInfoViewController.xib in Resources */,
 				A623786A1A100F8E00314170 /* TDNoteGroupsViewController.xib in Resources */,
 				A66AE0DE1A056FB9000C529E /* LaunchScreen.xib in Resources */,
 				A66AE0DB1A056FB9000C529E /* Images.xcassets in Resources */,
@@ -454,7 +439,6 @@
 				A62378811A1106EB00314170 /* TDNoteCell.swift in Sources */,
 				A62378691A100F8E00314170 /* TDNoteGroupsViewController.swift in Sources */,
 				9232C64C1A102348007A11A6 /* TDNoteGroupEntity.m in Sources */,
-				A64BBA141A0BEF2F00D8A30A /* TDInfoViewController.swift in Sources */,
 				A62378731A1010E700314170 /* TDNoteGroupCell.swift in Sources */,
 				A6A4C5D21A057E4800A73089 /* TDNotesModel.xcdatamodeld in Sources */,
 				A623787D1A10F3A800314170 /* PSXibView.m in Sources */,
