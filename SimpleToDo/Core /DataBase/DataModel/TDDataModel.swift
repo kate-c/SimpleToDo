@@ -33,7 +33,6 @@ class TDDataModel: NSObject {
     func notesInGroup(group: TDNoteGroupEntity) -> [TDNoteEntity] {
         let predicate = NSPredicate(format: "group = %@", group)
         let notes = TDNoteEntity.MR_findAllSortedBy("creationDate", ascending: true, withPredicate: predicate)
-        println(notes)
         return (notes as? [TDNoteEntity]) ?? []
     }
     
@@ -71,7 +70,7 @@ class TDDataModel: NSObject {
     }
     
     func changeNoteByDate(date: NSDate, note: TDNoteEntity) {
-        note.creationDate = date
+        note.remindDate = date
         context.MR_saveToPersistentStoreAndWait()
     }
     
@@ -107,6 +106,15 @@ class TDDataModel: NSObject {
         
         group?.MR_deleteInContext(context)
         context.MR_saveToPersistentStoreAndWait()
+    }
+    
+    func getIndexPath(note: TDNoteEntity, group: TDNoteGroupEntity) -> NSIndexPath {
+        for (index, tempNote) in enumerate(notesInGroup(group)) {
+            if tempNote.noteId == note.noteId {
+                return NSIndexPath(forRow: index, inSection: 0)
+            }
+        }
+        return NSIndexPath()
     }
     
 }

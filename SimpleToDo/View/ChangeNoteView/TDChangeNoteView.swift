@@ -29,4 +29,7 @@ class TDChangeNoteView: PSXibView {
     @IBAction func buttonAction(sender: UIButton) {
         self.hidden = true
     }
+    @IBAction func dataPickerEditingChangedAction(sender: UIDatePicker) {
+//        delegate?.noteView(self, changedValueToDate: dataPicker.date)
+    }
 }

@@ -36,6 +36,7 @@
                     </date>
                     <connections>
                         <action selector="buttonDataPickerChanged:" destination="-1" eventType="valueChanged" id="mSM-I3-ICe"/>
+                        <action selector="dataPickerEditingChangedAction:" destination="-1" eventType="editingChanged" id="fgv-qc-QCv"/>
                     </connections>
                 </datePicker>
             </subviews>

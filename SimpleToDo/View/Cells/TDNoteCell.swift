@@ -30,12 +30,15 @@ class TDNoteCell: UITableViewCell {
         
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-        self.remindDateLabel.text = dateFormatter.stringFromDate(note.creationDate)
+        self.remindDateLabel.text = dateFormatter.stringFromDate(note.remindDate)
+        
+        //self.remindDateLabel.text. = UIColor.redColor()
+        //self.remindDateLabel.highlightedTextColor = UIColor.redColor()
     }
     
     @IBAction func checkButtonAction(sender: UIButton) {
         
     }
     
-    
 }
+

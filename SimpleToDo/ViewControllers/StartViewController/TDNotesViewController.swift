@@ -44,11 +44,6 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
-        
-        let identifier = "TDNoteCell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as TDNoteCell
-        
         var tempNote : TDNoteEntity
        
         if tableView == self.searchDisplayController!.searchResultsTableView {
@@ -57,17 +52,24 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
             tempNote = notes[indexPath.row]
         }
         
+        if tempNote.remindDate == nil {
+            let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
+            cell.textLabel.text = tempNote.content
+            
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+            
+            cell.detailTextLabel?.text = "id: \(tempNote.noteId)" + " creation date: \(dateFormatter.stringFromDate(tempNote.creationDate))"
+            
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            
+            return cell
+        }
+        
+        let identifier = "TDNoteCell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as TDNoteCell
         cell.fillWithNote(tempNote)
         
-//        cell.textLabel.text = tempNote.content
-//        
-//        var dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-//        
-//        cell.detailTextLabel?.text = "id: \(tempNote.noteId)" + " creation date: \(dateFormatter.stringFromDate(tempNote.creationDate))"
-//        
-//        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-//        
         return cell
     }
     
@@ -118,29 +120,8 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - show cell info
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let infoVC = TDInfoViewController(nibName: "TDInfoViewController", bundle: nil)
-//        
-//        if tableView == self.searchDisplayController!.searchResultsTableView {
-//            infoVC.note = filteredNotes[indexPath.row]
-//        } else {
-//            infoVC.note = notes[indexPath.row]
-//        }
-//        
-//        //infoVC.view.backgroundColor = UIColor.yellowColor()
-//        self.navigationController?.pushViewController(infoVC, animated: true)
-        
         changeNoteView.hidden = false
         selectedIndexPath = indexPath
-        
-//        let datePickerView = TDChangeNoteView( (nibName: "TDChangeNoteView", bundle: nil)
-//                if tableView == self.searchDisplayController!.searchResultsTableView {
-//                    datePickerView.note = filteredNotes[indexPath.row]
-//                } else {
-//                    datePickerView.note = notes[indexPath.row]
-//                }
-        
-        
-    
         
     }
     
@@ -164,7 +145,18 @@ class TDNotesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - change note delegate
     func noteView(noteView: TDChangeNoteView, changedValueToDate date: NSDate) {
-        
+        var tempNote : TDNoteEntity
+        if var indexPath = selectedIndexPath {
+            if tableView == self.searchDisplayController!.searchResultsTableView {
+                tempNote = filteredNotes[indexPath.row]
+            } else {
+                tempNote = notes[indexPath.row]
+            }
+            
+            TDDataModel.sharedInstance.changeNoteByDate(date, note: tempNote)
+            selectedIndexPath = TDDataModel.sharedInstance.getIndexPath(tempNote, group: group)
+            reloadTableView()
+        }
     }
 
 }
